@@ -1,7 +1,3 @@
-.dropdown-toggle {
-    cursor: poiner;
-}
-
-.dropdown-item {
+.dropdown-toggle, .dropdown-item {
     cursor: poiner;
 }
