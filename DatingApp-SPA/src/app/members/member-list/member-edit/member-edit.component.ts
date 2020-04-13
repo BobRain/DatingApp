@@ -14,6 +14,7 @@ import { error } from 'protractor';
 })
 export class MemberEditComponent implements OnInit {
   user: User;
+  photoUrl:string;
   @HostListener('window:beforeunload', ['$event'])
   unloadNitification($event:any) {
     if(this.editForm.dirty) {
@@ -26,7 +27,8 @@ export class MemberEditComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data['user'];
-    })
+    });
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
 
@@ -37,5 +39,9 @@ export class MemberEditComponent implements OnInit {
     }, error => {
       this.alertify.error(error);
     });
+  }
+
+  updateMainPhoto(photoUrl:string) {
+    this.user.photoUrl = photoUrl;
   }
 }
