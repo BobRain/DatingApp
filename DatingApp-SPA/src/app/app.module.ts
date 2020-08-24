@@ -36,6 +36,7 @@ import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-e
 import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { from } from 'rxjs';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -94,6 +95,7 @@ export class CustomeHammerConfig extends HammerGestureConfig {
       PreventUnsavedChanges,
       UserService,
       MemberDetailResolver,
+      ListsResolver,
       MemberListResolver,
       MemberEditResolver,
       {provide: HAMMER_GESTURE_CONFIG, useClass: CustomeHammerConfig}
